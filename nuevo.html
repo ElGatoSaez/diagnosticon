@@ -1,0 +1,2411 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Organiza, archiva y diagnostica tus casos clínicos.">
+    <meta name="author" content="Sebastián Sáez Moscoso">
+    <meta name="generator" content="Bootstrap v5.0.1">
+    <title>Nuevo paciente - Diagnosticón</title>
+
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/checkout/"> -->
+    <!-- Bootstrap core CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+    <link href="main.css" rel="stylesheet">
+  </head>
+  <body class="bg-light">
+    
+    <header>
+      <div class="collapse bg-dark" id="navbarHeader">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-8 col-md-7 py-4">
+              <h4 class="text-white">Acerca de</h4>
+              <p class="text-muted">Diagnosticón es una herramienta que te permite organizar, archivar y diagnosticar los casos clínicos de tus pacientes.</p>
+            </div>
+            <div class="col-sm-4 offset-md-1 py-4">
+              <h4 class="text-white">Contact</h4>
+              <ul class="list-unstyled">
+                <li><a href="https://www.twitter.com/ElGatoSaez" class="text-white">Twitter</a></li>
+                <li><a href="https://www.github.com/ElGatoSaez" class="text-white">GitHub</a></li>
+                <li><a href="mailto:sebastian@saez.cat" class="text-white">Email me</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="navbar navbar-dark bg-dark shadow-sm">
+        <div class="container">
+          <a href="#" class="navbar-brand d-flex align-items-center">
+            <!--<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>-->
+            <strong>Diagnosticón</strong>
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+<div class="container">
+  <main>
+    <div class="py-5 text-center">
+      <h2 id="paciente-title">Nuevo paciente</h2>
+      <p class="lead" id="descripcion">Introduzca los datos del paciente como corresponda. El nombre es el único campo obligatorio.</p>
+    </div>
+
+    <div class="row g-5">
+      <!-- <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-pill">3</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Product name</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$12</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Second product</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$8</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">Third item</h6>
+              <small class="text-muted">Brief description</small>
+            </div>
+            <span class="text-muted">$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between bg-light">
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−$5</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (USD)</span>
+            <strong>$20</strong>
+          </li>
+        </ul>
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code">
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>
+      </div> -->
+      <div class="col-lg-12">
+        <h4 class="mb-3">Atributos de la personalidad</h4>
+        <form class="needs-validation" novalidate>
+          <div class="row g-3">
+            <div class="col-12">
+              <label for="firstName" class="form-label">Nombre <span class="text-muted">(Obligatorio)</span></label>
+              <input type="text" class="form-control" id="name" placeholder="Nombre" value="" required>
+              <div class="invalid-feedback">
+                El nombre es el único campo obligatorio.
+              </div>
+            </div>
+
+            <!-- <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div> -->
+
+            <div class="col-sm-4">
+              <label for="rut" class="form-label">RUT</label>
+              <div class="input-group has-validation">
+                <input type="text" class="form-control" id="rut" placeholder="RUT">
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="sex" class="form-label">Sexo</label>
+              <input type="text" class="form-control" id="sex" placeholder="Sexo">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="age" class="form-label">Edad</label>
+              <input type="text" class="form-control" id="age" placeholder="Edad">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="birthdate" class="form-label">Fecha de nacimiento</label>
+              <input type="text" class="form-control" id="birthdate" placeholder="Fecha de nacimiento">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="country" class="form-label">Nacionalidad</label>
+              <input type="text" class="form-control" id="country" placeholder="Nacionalidad">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="marital-status" class="form-label">Estado civil</label>
+              <input type="text" class="form-control" id="marital-status" placeholder="Estado civil">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="sons" class="form-label">Hijos</label>
+              <input type="text" class="form-control" id="sons" placeholder="Hijos">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="address" class="form-label">Domicilio</label>
+              <input type="text" class="form-control" id="address" placeholder="Domicilio">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="job" class="form-label">Ocupación</label>
+              <input type="text" class="form-control" id="job" placeholder="Ocupación">
+            </div>
+
+            <div class="col-md-6">
+              <label for="isapre" class="form-label">Previsión</label>
+              <input type="text" class="form-control" id="isapre" placeholder="Previsión">
+            </div>
+
+            <div class="col-md-6">
+                <label for="phone" class="form-label">Teléfono</label>
+                <input type="number" class="form-control" id="phone" placeholder="Teléfono">
+                <div class="invalid-feedback">
+                    ¡Debe ser un número válido!
+                  </div>
+              </div>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Motivo de consulta</h4>
+
+          <div class="col-12">
+            <textarea class="form-control" id="motivo-de-consulta" rows="3"></textarea>
+          </div>
+
+          <hr class="my-4">
+
+          <!-- <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address">
+            <label class="form-check-label" for="same-address">Shipping address is the same as my billing address</label>
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info">
+            <label class="form-check-label" for="save-info">Save this information for next time</label>
+          </div> -->
+
+          <h4 class="mb-3">Dolor</h4>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="cbdolor" onchange="dolorCambio()">
+                <label class="form-check-label" for="cbdolor">¿Hay dolor?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cdolor" style="display: none;">
+            <div class="col-sm-4">
+              <label for="pain-old" class="form-label"><b>A</b>ntigüedad</label>
+              <input type="text" class="form-control" id="pain-old" placeholder="Antigüedad">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="pain-localization" class="form-label"><b>L</b>ocalización</label>
+              <input type="text" class="form-control" id="pain-localization" placeholder="Localización">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="pain-eva" class="form-label"><b>I</b>ntensidad</label>
+              <input type="number" class="form-control" id="pain-eva" placeholder="EVA">
+              <div class="invalid-feedback">
+                ¡Debe ser un número válido entre el 1 al 10!
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+                <label for="pain-character" class="form-label"><b>C</b>arácter</label>
+                <input type="text" class="form-control" id="pain-character" placeholder="Carácter">
+              </div>
+  
+            <div class="col-sm-4">
+                <label for="pain-irradiation" class="form-label"><b>I</b>rradiación</label>
+                <input type="text" class="form-control" id="pain-irradiation" placeholder="Irradiación">
+              </div>
+  
+            <div class="col-sm-4">
+                <label for="pain-aggravant" class="form-label"><b>A</b>gravantes</label>
+                <input type="text" class="form-control" id="pain-aggravant" placeholder="Agravantes">
+              </div>
+
+            <div class="col-sm-4">
+                <label for="pain-extenuating" class="form-label"><b>A</b>tenuantes</label>
+                <input type="text" class="form-control" id="pain-extenuating" placeholder="Atenuantes">
+              </div>
+  
+            <div class="col-sm-4">
+                <label for="pain-start" class="form-label"><b>C</b>omienzo</label>
+                <input type="text" class="form-control" id="pain-start" placeholder="Comienzo">
+              </div>
+  
+            <div class="col-sm-4">
+                <label for="pain-evolution" class="form-label"><b>E</b>volución</label>
+                <input type="text" class="form-control" id="pain-evolution" placeholder="Evolución">
+              </div>
+
+            <div class="col-sm-12">
+              <label for="pain-additional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="dolor-additional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Sistema cardiovascular</h4>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="ortopnea" onchange="ortopneaCambio()">
+                <label class="form-check-label" for="ortopnea">¿Hay ortopnea?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cortopnea" style="display: none;">
+            <div class="col-sm-4">
+              <label for="almohadas" class="form-label">Almohadas</label>
+              <input type="number" class="form-control" id="almohadas">
+              <div class="invalid-feedback">
+                ¡Debe ser un número válido!
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="ortopnea-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="ortopnea-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="ortopnea-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="ortopnea-evolucion" placeholder="¿Ha aumentado?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="ortopnea-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="ortopnea-adicional" rows="3"></textarea>
+            </div>
+
+          </div>   
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="palpitaciones" onchange="palpitacionesCambio()">
+                <label class="form-check-label" for="palpitaciones">¿Hay palpitaciones?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cpalpitaciones" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="palpitaciones-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="palpitaciones-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="palpitaciones-caracteristicas" class="form-label">Características</label>
+              <input type="text" class="form-control" id="palpitaciones-caracteristicas" placeholder="¿Regular o irregular?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="palpitaciones-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="palpitaciones-frecuencia" placeholder="¿Cuántas veces al día?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="palpitaciones-agravantes" class="form-label">Agravantes</label>
+              <input type="text" class="form-control" id="palpitaciones-agravantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="palpitaciones-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="palpitaciones-atenuantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="palpitaciones-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="palpitaciones-evolucion" placeholder="¿Ha aumentado o disminuido?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="palpitaciones-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="palpitaciones-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="diaforesis" onchange="diaforesisCambio()">
+                <label class="form-check-label" for="diaforesis">¿Hay diaforesis?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cdiaforesis" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="diaforesis-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="diaforesis-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="diaforesis-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="diaforesis-frecuencia" placeholder="¿Durante todo el día/noche?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="diaforesis-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="diaforesis-evolucion" placeholder="¿Ha aumentado?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="diaforesis-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="diaforesis-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="edema" onchange="edemaCambio()">
+                <label class="form-check-label" for="edema">¿Hay edema?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cedema" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="edema-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="edema-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="edema-caracteristicas" class="form-label">Características</label>
+              <input type="text" class="form-control" id="edema-caracteristicas" placeholder="¿Durante todo el día/noche?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="edema-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="edema-evolucion" placeholder="¿Ha aumentado o constante?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="edema-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="edema-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="sincope" onchange="sincopeCambio()">
+                <label class="form-check-label" for="sincope">¿Hay síncope?</label>
+              </div>
+          </div>
+        
+          <div class="row gy-3" id="csincope" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="sincope-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="sincope-comienzo" placeholder="¿Cuándo fue?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="sincope-duracion" class="form-label">Características</label>
+              <input type="text" class="form-control" id="sincope-duracion" placeholder="¿Cuánto duró?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="sincope-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="sincope-evolucion" placeholder="¿Ha vuelto a pasar?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="sincope-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="sincope-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="lipotimia" onchange="lipotimiaCambio()">
+                <label class="form-check-label" for="lipotimia">¿Hay lipotimia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="clipotimia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="lipotimia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="lipotimia-comienzo" placeholder="¿Cuándo fue?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="lipotimia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="lipotimia-evolucion" placeholder="¿Ha vuelto a pasar?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="lipotimia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="lipotimia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hipotensionpostural" onchange="hipotensionposturalCambio()">
+                <label class="form-check-label" for="hipotensionpostural">¿Hay hipotensión postural?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="chipotensionpostural" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="hipotension-postural-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="hipotension-postural-frecuencia" placeholder="¿Siempre o a veces?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="hipotension-postural-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="hipotension-postural-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hipo" onchange="hipoCambio()">
+                <label class="form-check-label" for="hipo">¿Hay hipo?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="chipo" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="hipo-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="hipo-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="col-12">
+            <h5 class="mb-3">Adicional</h5>
+            <textarea class="form-control" id="SCV-adicional" rows="8"></textarea>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Sistema digestivo</h4>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="sialorrea" onchange="sialorreaCambio()">
+                <label class="form-check-label" for="sialorrea">¿Hay sialorrea?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="csialorrea" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="sialorrea-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="sialorrea-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="sialorrea-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="sialorrea-evolucion" placeholder="¿Disminuído o mantenido?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="sialorrea-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="sialorrea-adicional" rows="3"></textarea>
+            </div>
+            
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="halitosis" onchange="halitosisCambio()">
+                <label class="form-check-label" for="halitosis">¿Hay halitosis?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="chalitosis" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="halitosis-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="halitosis-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="halitosis-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="halitosis-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="flatulencias" onchange="flatulenciasCambio()">
+                <label class="form-check-label" for="flatulencias">¿Hay flatulencias?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cflatulencias" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="flatulencias-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="flatulencias-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="flatulencias-caracteristica" class="form-label">Característica</label>
+              <input type="text" class="form-control" id="flatulencias-caracteristica" placeholder="¿Hay mal olor?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="flatulencias-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="flatulencias-prandial" placeholder="¿Antes o después de comer?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="flatulencias-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="flatulencias-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="disfagia" onchange="disfagiaCambio()">
+                <label class="form-check-label" for="disfagia">¿Hay disfagia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cdisfagia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="disfagia-alimentos" class="form-label">Tipo de alimentos</label>
+              <input type="text" class="form-control" id="disfagia-alimentos" placeholder="¿Líquido, sólido, ambos?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="disfagia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="disfagia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="disfagia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="disfagia-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="disfagia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="disfagia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="odinofagia" onchange="odinofagiaCambio()">
+                <label class="form-check-label" for="odinofagia">¿Hay odinofagia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="codinofagia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="odinofagia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="odinofagia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="odinofagia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="odinofagia-evolucion">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="odinofagia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="odinofagia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="regurgitacion" onchange="regurgitacionCambio()">
+                <label class="form-check-label" for="regurgitacion">¿Hay regurgitación?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cregurgitacion" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="regurgitacion-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="regurgitacion-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="regurgitacion-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="regurgitacion-prandial" placeholder="¿Antes o después de comer?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="regurgitacion-agravantes" class="form-label">Agravantes</label>
+              <input type="text" class="form-control" id="regurgitacion-agravantes" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="regurgitacion-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="regurgitacion-atenuantes" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="regurgitacion-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="regurgitacion-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="regurgitacion-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="regurgitacion-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="pirosis" onchange="pirosisCambio()">
+                <label class="form-check-label" for="pirosis">¿Hay pirosis?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cpirosis" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="pirosis-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="pirosis-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="pirosis-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="pirosis-prandial" placeholder="¿Antes o después de comer?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="pirosis-agravantes" class="form-label">Agravantes</label>
+              <input type="text" class="form-control" id="pirosis-agravantes" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="pirosis-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="pirosis-atenuantes" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="pirosis-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="pirosis-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="pirosis-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="pirosis-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="saciedad-precoz" onchange="saciedadprecozCambio()">
+                <label class="form-check-label" for="saciedad-precoz">¿Hay saciedad precoz?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="csaciedad-precoz" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="saciedad-precoz-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="saciedad-precoz-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="saciedad-precoz-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="saciedad-precoz-evolucion">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="saciedad-precoz-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="saciedad-precoz-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="nauseas" onchange="nauseasCambio()">
+                <label class="form-check-label" for="nauseas">¿Hay náuseas?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cnauseas" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="nauseas-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="nauseas-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+    
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="vomito" onchange="vomitoCambio()">
+                <label class="form-check-label" for="vomito">¿Hay vómitos?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cvomito" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="vomito-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="vomito-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="vomito-color" class="form-label">Color</label>
+              <input type="text" class="form-control" id="vomito-color">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="vomito-sangre" onchange="vomitosSangreCambio()">
+                 <label class="form-check-label" for="vomito-sangre">¿Hay sangre?</label>
+              </div>
+            </div>
+
+            <div class="col-sm-4">
+              <label for="vomito-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="vomito-cantidad" placeholder="¿Cuánto es?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="vomito-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="vomito-frecuencia" placeholder="¿Cuántas veces?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="vomito-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="vomito-prandial" placeholder="¿Antes o después de comer?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="vomito-dolor" class="form-label">Relación con el dolor</label>
+              <input type="text" class="form-control" id="vomito-prandial" placeholder="¿Se quita el dolor al comer?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="vomito-agravantes" class="form-label">Agravantes</label>
+              <input type="text" class="form-control" id="vomito-agravantes" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="vomito-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="vomito-atenuantes" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="vomito-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="vomito-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="vomito-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="vomito-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="constipacion" onchange="constipacionCambio()">
+                <label class="form-check-label" for="constipacion">¿Hay constipación?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cconstipacion" style="display: none;">
+            <div class="col-sm-4">
+              <label for="constipacion-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="constipacion-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="constipacion-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="constipacion-frecuencia" placeholder="¿Cada cuántos días?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="constipacion-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="constipacion-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="cambio-deposiciones" onchange="cambioDeposicionesCambio()">
+                <label class="form-check-label" for="cambio-deposiciones">¿Hay cambio en las deposiciones?</label>
+              </div>
+          </div>
+      
+          <div class="row gy-3" id="ccambio-deposiciones" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="cambio-deposiciones-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="cambio-deposiciones-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cambio-deposiciones-consistencia" class="form-label">Consistencia</label>
+              <input type="text" class="form-control" id="cambio-deposiciones-consistencia" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cambio-deposiciones-contenido" class="form-label">Contenido</label>
+              <input type="text" class="form-control" id="cambio-deposiciones-contenido" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cambio-deposiciones-olor" class="form-label">Olor</label>
+              <input type="text" class="form-control" id="cambio-deposiciones-olor" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cambio-deposiciones-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="cambio-deposiciones-cantidad" placeholder="¿Cuánto es?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cambio-deposiciones-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="cambio-deposiciones-frecuencia" placeholder="¿Cuántas veces?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cambio-deposiciones-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="cambio-deposiciones-prandial" placeholder="¿Antes o después de comer?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cambio-deposiciones-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="cambio-deposiciones-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="cambio-deposiciones-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="cambio-deposiciones-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="estetorrea" onchange="estetorreaCambio()">
+                <label class="form-check-label" for="estetorrea">¿Hay estetorrea?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cestetorrea" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="estetorrea-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="estetorrea-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="estetorrea-caracteristica" class="form-label">Característica</label>
+              <input type="text" class="form-control" id="estetorrea-caracteristica" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="estetorrea-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="estetorrea-cantidad" placeholder="¿Cuánto es?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="estetorrea-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="estetorrea-frecuencia" placeholder="¿Cuántas veces?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="estetorrea-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="estetorrea-prandial" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="estetorrea-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="estetorrea-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="estetorrea-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="estetorrea-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="acolia" onchange="acoliaCambio()">
+                <label class="form-check-label" for="acolia">¿Hay acolia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cacolia" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="acolia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="acolia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="acolia-caracteristica" class="form-label">Característica</label>
+              <input type="text" class="form-control" id="acolia-caracteristica" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="acolia-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="acolia-cantidad" placeholder="¿Cuánto es?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="acolia-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="acolia-frecuencia" placeholder="¿Cuántas veces?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="acolia-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="acolia-prandial" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="acolia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="acolia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="melena" onchange="melenaCambio()">
+                <label class="form-check-label" for="melena">¿Hay melena?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cmelena" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="melena-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="melena-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="melena-caracteristica" class="form-label">Característica</label>
+              <input type="text" class="form-control" id="melena-caracteristica" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="melena-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="melena-cantidad" placeholder="¿Cuánto es?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="melena-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="melena-frecuencia" placeholder="¿Cuántas veces?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="melena-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="melena-prandial" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="melena-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="melena-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="melena-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="melena-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hematequezia" onchange="hematequeziaCambio()">
+                <label class="form-check-label" for="hematequezia">¿Hay hematequezia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="chematequezia" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="hematequezia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="hematequezia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hematequezia-caracteristica" class="form-label">Característica</label>
+              <input type="text" class="form-control" id="hematequezia-caracteristica" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hematequezia-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="hematequezia-cantidad" placeholder="¿Cuánto es?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hematequezia-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="hematequezia-frecuencia" placeholder="¿Cuántas veces?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hematequezia-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="hematequezia-prandial" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hematequezia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="hematequezia-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="hematequezia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="hematequezia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="rectorragia" onchange="rectorragiaCambio()">
+                <label class="form-check-label" for="rectorragia">¿Hay rectorragia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="crectorragia" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="rectorragia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="rectorragia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="rectorragia-caracteristica" class="form-label">Característica</label>
+              <input type="text" class="form-control" id="rectorragia-caracteristica" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="rectorragia-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="rectorragia-cantidad" placeholder="¿Cuánto es?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="rectorragia-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="rectorragia-frecuencia" placeholder="¿Cuántas veces?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="rectorragia-prandial" class="form-label">Relación prandial</label>
+              <input type="text" class="form-control" id="rectorragia-prandial" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="rectorragia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="rectorragia-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="rectorragia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="rectorragia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="pujo-tenesmo" onchange="pujoTenesmoCambio()">
+                <label class="form-check-label" for="pujo-tenesmo">¿Hay pujo y tenesmo?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cpujo-tenesmo" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="pujo-tenesmo-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="pujo-tenesmo-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="pujo-tenesmo-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="pujo-tenesmo-evolucion">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="pujo-tenesmo-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="pujo-tenesmo-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="meteorismo" onchange="meteorismoCambio()">
+                <label class="form-check-label" for="meteorismo">¿Hay meteorismo?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cmeteorismo" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="meteorismo-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="meteorismo-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hinchazon-abdominal" onchange="hinchazonAbdominalCambio()">
+                <label class="form-check-label" for="hinchazon-abdominal">¿Hay hinchazón abdominal?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="chinchazon-abdominal" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="hinchazon-abdominal-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="hinchazon-abdominal-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="ictericia" onchange="ictericiaCambio()">
+                <label class="form-check-label" for="ictericia">¿Hay ictericia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cictericia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="ictericia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="ictericia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="ictericia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="ictericia-evolucion">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="ictericia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="ictericia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>          
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="prurito-palmar" onchange="pruritoPalmarCambio()">
+                <label class="form-check-label" for="prurito-palmar">¿Hay prurito palmar?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cprurito-palmar" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="prurito-palmar-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="prurito-palmar-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="asterixis" onchange="asterixisCambio()">
+                <label class="form-check-label" for="asterixis">¿Hay asterixis?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="casterixis" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="asterixis-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="asterixis-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="telangectasia-petequias" onchange="telangectasiaPetequiasCambio()">
+                <label class="form-check-label" for="telangectasia-petequias">¿Hay telangectasia o petequias?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="ctelangectasia-petequias" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="telangectasia-petequias-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="telangectasia-petequias-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="telangectasia-petequias-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="telangectasia-petequias-evolucion">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="telangectasia-petequias-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="telangectasia-petequias-adicional" rows="3"></textarea>
+            </div>
+
+          </div>   
+
+          <div class="col-12">
+            <h5 class="mb-3">Adicional</h5>
+            <textarea class="form-control" id="digestivo-adicional" rows="8"></textarea>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Sistema respiratorio</h4>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="tope-inspiratorio" onchange="topeInspiratorioCambio()">
+                <label class="form-check-label" for="tope-inspiratorio">¿Hay tope inspiratorio?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="ctope-inspiratorio" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="tope-inspiratorio-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="tope-inspiratorio-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="tos" onchange="tosCambio()">
+                <label class="form-check-label" for="tos">¿Hay tos?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="ctos" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="tos-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="tos-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="tos-caracteristicas" class="form-label">Características</label>
+              <input type="text" class="form-control" id="tos-caracteristicas">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="tos-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="tos-frecuencia" placeholder="¿Cuántas veces al día?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="tos-agravantes" class="form-label">Agravantes</label>
+              <input type="text" class="form-control" id="tos-agravantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="tos-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="tos-atenuantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="tos-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="tos-evolucion" placeholder="¿Ha aumentado o disminuido?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="tos-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="tos-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="expectoraciones" onchange="expectoracionesCambio()">
+                <label class="form-check-label" for="expectoraciones">¿Hay expectoraciones?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cexpectoraciones" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="expectoraciones-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="expectoraciones-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="expectoraciones-caracteristicas" class="form-label">Características</label>
+              <input type="text" class="form-control" id="expectoraciones-caracteristicas" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="expectoraciones-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="expectoraciones-cantidad" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="expectoraciones-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="expectoraciones-frecuencia" placeholder="¿Cuántas veces al día?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="expectoraciones-agravantes" class="form-label">Agravantes</label>
+              <input type="text" class="form-control" id="expectoraciones-agravantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="expectoraciones-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="expectoraciones-atenuantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="expectoraciones-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="expectoraciones-evolucion" placeholder="¿Ha aumentado o disminuido?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="expectoraciones-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="expectoraciones-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hemoptisis" onchange="hemoptisisCambio()">
+                <label class="form-check-label" for="hemoptisis">¿Hay hemoptisis?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="chemoptisis" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="hemoptisis-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="hemoptisis-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hemoptisis-caracteristicas" class="form-label">Características</label>
+              <input type="text" class="form-control" id="hemoptisis-caracteristicas" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hemoptisis-cantidad" class="form-label">Cantidad</label>
+              <input type="text" class="form-control" id="hemoptisis-cantidad" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hemoptisis-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="hemoptisis-frecuencia" placeholder="¿Cuántas veces al día?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hemoptisis-agravantes" class="form-label">Agravantes</label>
+              <input type="text" class="form-control" id="hemoptisis-agravantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hemoptisis-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="hemoptisis-atenuantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="hemoptisis-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="hemoptisis-evolucion" placeholder="¿Ha aumentado o disminuido?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="hemoptisis-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="hemoptisis-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="disnea" onchange="disneaCambio()">
+                <label class="form-check-label" for="disnea">¿Hay disnea?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cdisnea" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="disnea-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="disnea-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="disnea-agravantes" class="form-label">Agravantes</label>
+              <input type="text" class="form-control" id="disnea-agravantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="disnea-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="disnea-atenuantes">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="disnea-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="disnea-evolucion" placeholder="¿Ha aumentado o disminuido?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="disnea-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="disnea-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+          
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="disnea-paroxistica" onchange="disneaParoxisticaCambio()">
+                <label class="form-check-label" for="disnea-paroxistica">¿Hay disnea paroxística nocturna?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cdisnea-paroxistica" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="disnea-paroxistica-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="disnea-paroxistica-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="disnea-paroxistica-atenuantes" class="form-label">Atenuantes</label>
+              <input type="text" class="form-control" id="disnea-paroxistica-atenuantes">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="disnea-paroxistica-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="disnea-paroxistica-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="respiracion-ruidosa" onchange="respiracionRuidosaCambio()">
+                <label class="form-check-label" for="respiracion-ruidosa">¿Hay respiración ruidosa?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="crespiracion-ruidosa" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="respiracion-ruidosa-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="respiracion-ruidosa-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="cianosis" onchange="cianosisCambio()">
+                <label class="form-check-label" for="cianosis">¿Hay cianosis o palidez anémica?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="ccianosis" style="display: none;" >
+
+            <div class="col-sm-4">
+              <label for="cianosis-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="cianosis-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="cianosis-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="cianosis-evolucion">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="cianosis-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="cianosis-adicional" rows="3"></textarea>
+            </div>
+
+          </div>  
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="coriza" onchange="corizaCambio()">
+                <label class="form-check-label" for="coriza">¿Hay coriza?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="ccoriza" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="coriza-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="coriza-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="coriza-caracteristicas" class="form-label">Características</label>
+              <input type="text" class="form-control" id="coriza-caracteristicas" >
+            </div>
+
+            <div class="col-sm-4">
+              <label for="coriza-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="coriza-frecuencia" placeholder="¿Cuántas veces al día?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="coriza-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="coriza-evolucion" placeholder="¿Ha aumentado o disminuido?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="coriza-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="coriza-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="col-12">
+            <h5 class="mb-3">Adicional</h5>
+            <textarea class="form-control" id="respiratorio-adicional" rows="8"></textarea>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Sistema urinario</h4>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="nicturia" onchange="nicturiaCambio()">
+                <label class="form-check-label" for="nicturia">¿Hay nicturia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cnicturia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="nicturia-frecuencia" class="form-label">Frecuencia</label>
+              <input type="text" class="form-control" id="nicturia-frecuencia" placeholder="¿Cuántas veces?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="nicturia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="nicturia-evolucion" placeholder="¿Antes iba?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="nicturia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="nicturia-adicional" rows="3"></textarea>
+            </div>
+
+          </div> 
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="coluria" onchange="coluriaCambio()">
+                <label class="form-check-label" for="coluria">¿Hay coluria?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="ccoluria" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="coluria-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="coluria-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="coluria-caracteristicas" class="form-label">Características</label>
+              <input type="text" class="form-control" id="coluria-caracteristicas" placeholder="Ref 3 Vasos">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="coluria-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="coluria-evolucion" >
+            </div>
+
+            <div class="col-sm-12">
+              <label for="coluria-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="coluria-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+          
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hematuria" onchange="hematuriaCambio()">
+                <label class="form-check-label" for="hematuria">¿Hay hematuria?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="chematuria" style="display: none;">
+
+            <div class="col-sm-4">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hematuria-toda-miccion" onchange="hematuriatodamiccion()">
+                <label class="form-check-label" for="hematuria-toda-miccion">¿Durante toda la micción?</label>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hematuria-dolor" onchange="hematuriadolor()">
+                <label class="form-check-label" for="hematuria-dolor">¿Hay dolor?</label>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="hematuria-coagulos" onchange="hematuriacoagulos()">
+                <label class="form-check-label" for="hematuria-coagulos">¿Hay coágulos?</label>
+              </div>
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="hematuria-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="hematuria-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="orina-turbia" onchange="orinaTurbiaCambio()">
+                <label class="form-check-label" for="orina-turbia">¿Hay orina turbia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="corina-turbia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="orina-turbia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="orina-turbia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="orina-turbia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="orina-turbia-adicional" rows="3"></textarea>
+            </div>
+          
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="orina-espumosa" onchange="orinaEspumosaCambio()">
+                <label class="form-check-label" for="orina-espumosa">¿Hay orina espumosa?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="corina-espumosa" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="orina-espumosa-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="orina-espumosa-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="orina-espumosa-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="orina-espumosa-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="poliaquiuria" onchange="poliaquiuriaCambio()">
+                <label class="form-check-label" for="poliaquiuria">¿Hay poliaquiuria?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cpoliaquiuria" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="poliaquiuria-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="poliaquiuria-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="poliaquiuria-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="poliaquiuria-evolucion" placeholder="¿Ha aumentado?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="poliaquiuria-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="poliaquiuria-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="oliguria" onchange="oliguriaCambio()">
+                <label class="form-check-label" for="oliguria">¿Hay oliguria?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="coliguria" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="oliguria-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="oliguria-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="oliguria-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="oliguria-evolucion" placeholder="¿Disminuído o mantenido?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="oliguria-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="oliguria-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="anuria" onchange="anuriaCambio()">
+                <label class="form-check-label" for="anuria">¿Hay anuria?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="canuria" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="anuria-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="anuria-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="disuria" onchange="disuriaCambio()">
+                <label class="form-check-label" for="disuria">¿Hay disuria?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cdisuria" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="disuria-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="disuria-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="disuria-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="disuria-evolucion" placeholder="¿Ha aumentado?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="disuria-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="disuria-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="tenesmo-pujo-vertical" onchange="tenesmoPujoVerticalCambio()">
+                <label class="form-check-label" for="tenesmo-pujo-vertical">¿Hay tenesmo o pujo vertical?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="ctenesmo-pujo-vertical" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="tenesmo-pujo-vertical-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="tenesmo-pujo-vertical-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="tenesmo-pujo-vertical-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="tenesmo-pujo-vertical-adicional" rows="3"></textarea>
+            </div>
+          
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="anasarca-hidropesia" onchange="anasarcaHidropesiaCambio()">
+                <label class="form-check-label" for="anasarca-hidropesia">¿Hay anasarca o hidropesia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="canasarca-hidropesia" style="display: none;">
+
+            <div class="col-sm-12">
+              <label for="anasarca-hidropesia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="anasarca-hidropesia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="col-12">
+            <h5 class="mb-3">Adicional</h5>
+            <textarea class="form-control" id="urinario-adicional" rows="8"></textarea>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Sistema reumatológico</h4>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="simetria" onchange="simetriaCambio()">
+                <label class="form-check-label" for="simetria">¿Hay simetría?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="csimetria" style="display: none;">
+            <div class="col-sm-12">
+              <label for="simetria-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="simetria-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="inflamacion" onchange="inflamacionCambio()">
+                <label class="form-check-label" for="inflamacion">¿Hay inflamación?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cinflamacion" style="display: none;">
+            <div class="col-sm-12">
+              <label for="inflamacion-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="inflamacion-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="impotencia-funcional" onchange="impotenciaFuncionalCambio()">
+                <label class="form-check-label" for="impotencia-funcional">¿Hay impotencia funcional?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cimpotencia-funcional" style="display: none;">
+            <div class="col-sm-12">
+              <label for="impotencia-funcional-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="impotencia-funcional-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="rigidez" onchange="rigidezCambio()">
+                <label class="form-check-label" for="rigidez">¿Hay rigidez?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="crigidez" style="display: none;">
+            <div class="col-sm-12">
+              <label for="rigidez-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="rigidez-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="periarticular" onchange="periarticularCambio()">
+                <label class="form-check-label" for="periarticular">¿Es periarticular o articular?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cperiarticular" style="display: none;">
+            <div class="col-sm-12">
+              <label for="periarticular-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="periarticular-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="raquialgia" onchange="raquialgiaCambio()">
+                <label class="form-check-label" for="raquialgia">¿Hay raquialgia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="craquialgia" style="display: none;">
+            <div class="col-sm-12">
+              <label for="raquialgia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="raquialgia-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="radiculopatia" onchange="radiculopatiaCambio()">
+                <label class="form-check-label" for="radiculopatia">¿Hay radiculopatía?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cradiculopatia" style="display: none;">
+            <div class="col-sm-12">
+              <label for="radiculopatia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="radiculopatia-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="debilidad" onchange="debilidadCambio()">
+                <label class="form-check-label" for="debilidad">¿Hay debilidad?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cdebilidad" style="display: none;">
+            <div class="col-sm-12">
+              <label for="debilidad-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="debilidad-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="parestesia" onchange="parestesiaCambio()">
+                <label class="form-check-label" for="parestesia">¿Hay parestesia?</label>
+              </div>
+          </div>
+          
+          <div class="row gy-3" id="cparestesia" style="display: none;">
+            <div class="col-sm-12">
+              <label for="parestesia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="parestesia-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="paresia" onchange="paresiaCambio()">
+                <label class="form-check-label" for="paresia">¿Hay paresia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cparesia" style="display: none;">
+            <div class="col-sm-12">
+              <label for="paresia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="paresia-adicional" rows="3"></textarea>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <h5 class="mb-3">Adicional</h5>
+            <textarea class="form-control" id="reumatologico-adicional" rows="8"></textarea>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Compromiso del estado general</h4>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="fiebre" onchange="fiebreCambio()">
+                <label class="form-check-label" for="fiebre">¿Hay fiebre?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cfiebre" style="display: none;">
+            <label for="tenesmo-pujo-vertical-adicional" class="form-label">Adicional</label>
+            <textarea class="form-control" id="info-fiebre" rows="3"></textarea>
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="sudoracion" onchange="sudoracionCambio()">
+                <label class="form-check-label" for="sudoracion">¿Hay sudoración?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="csudoracion" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="sudoracion-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="sudoracion-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="sudoracion-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="sudoracion-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="escalofrios" onchange="escalofriosCambio()">
+                <label class="form-check-label" for="escalofrios">¿Hay escalofríos?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cescalofrios" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="escalofrios-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="escalofrios-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="escalofrios-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="escalofrios-adicional" rows="3"></textarea>
+            </div>
+          
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="astenia" onchange="asteniaCambio()">
+                <label class="form-check-label" for="astenia">¿Hay astenia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="castenia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="astenia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="astenia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="astenia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="astenia-evolucion" placeholder="¿Ha aumentado?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="astenia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="astenia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="adinamia" onchange="adinamiaCambio()">
+                <label class="form-check-label" for="adinamia">¿Hay adinamia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cadinamia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="adinamia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="adinamia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="adinamia-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="adinamia-evolucion" placeholder="¿Ha aumentado?">
+            </div>
+
+            <div class="col-sm-12">
+              <label for="adinamia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="adinamia-adicional" rows="3"></textarea>
+            </div>
+          
+          </div>
+
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="anorexia" onchange="anorexiaCambio()">
+                <label class="form-check-label" for="anorexia">¿Hay anorexia?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="canorexia" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="anorexia-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="anorexia-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="anorexia-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="anorexia-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+    
+          <div class="my-3">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="baja-de-peso" onchange="bajadepesoCambio()">
+                <label class="form-check-label" for="baja-de-peso">¿Hay baja de peso?</label>
+              </div>
+          </div>
+
+          <div class="row gy-3" id="cbaja-de-peso" style="display: none;">
+
+            <div class="col-sm-4">
+              <label for="baja-de-peso-comienzo" class="form-label">Comienzo</label>
+              <input type="text" class="form-control" id="baja-de-peso-comienzo" placeholder="¿Desde cuándo?">
+            </div>
+
+            <div class="col-sm-4">
+              <label for="baja-de-peso-evolucion" class="form-label">Evolución</label>
+              <input type="text" class="form-control" id="baja-de-peso-evolucion" placeholder="¿Cuántas tallas?">
+            </div>
+          
+            <div class="col-sm-12">
+              <label for="baja-de-peso-adicional" class="form-label">Adicional</label>
+              <textarea class="form-control" id="baja-de-peso-adicional" rows="3"></textarea>
+            </div>
+
+          </div>
+
+          <div class="col-12">
+            <h5 class="mb-3">Adicional</h5>
+            <textarea class="form-control" id="CEG-adicional" rows="8"></textarea>
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Anamnesis remota</h4>
+
+          <div class="row gy-3">
+
+            <div class="col-sm-4">
+              <h5 class="mb-3">Antecedentes mórbidos</h5>
+              <textarea class="form-control" id="antecedentes-morbidos" rows="3"></textarea>
+            </div>
+
+            <div class="col-sm-4">
+              <h5 class="mb-3">Hospitalizaciones y cx previas</h5>
+              <textarea class="form-control" id="hospitalizaciones-cirugias" rows="3"></textarea>
+            </div>
+
+            <div class="col-sm-4">
+              <h5 class="mb-3">Fármacos, vacunas y alergias</h5>
+              <textarea class="form-control" id="farmacos-vacunas-alergias" rows="3"></textarea>
+            </div>
+
+            <div class="my-3">
+              <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="alcohol" onchange="alcoholCambio()">
+                  <label class="form-check-label" for="alcohol">Alcohol</label>
+                </div>
+            </div>
+        
+            <div class="row gy-3" id="calcohol" style="display: none; margin-top: 0;" >
+
+              <div class="col-sm-4">
+                <label for="alcohol-cantidad" class="form-label">Cantidad</label>
+                <input type="text" class="form-control" id="alcohol-comienzo" >
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="alcohol-frecuencia" class="form-label">Frecuencia</label>
+                <input type="text" class="form-control" id="alcohol-frecuencia">
+              </div>
+  
+            </div>  
+
+            <div class="my-3">
+              <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="tabaco" onchange="tabacoCambio()">
+                  <label class="form-check-label" for="tabaco">Tabaco</label>
+                </div>
+            </div>
+
+            <div class="row gy-3" id="ctabaco" style="display: none; margin-top: 0;" >
+
+              <div class="col-sm-4">
+                <label for="tabaco-cantidad" class="form-label">Cantidad</label>
+                <input type="text" class="form-control" id="tabaco-comienzo" >
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="tabaco-frecuencia" class="form-label">Frecuencia</label>
+                <input type="text" class="form-control" id="tabaco-frecuencia">
+              </div>
+  
+            </div>  
+
+
+            <div class="my-3">
+              <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="drogas" onchange="drogasCambio()">
+                  <label class="form-check-label" for="drogas">Drogas</label>
+                </div>
+            </div>
+
+            <div class="row gy-3" id="cdrogas" style="display: none; margin-top: 0;" >
+
+              <div class="col-sm-4">
+                <label for="drogas-cantidad" class="form-label">Cantidad</label>
+                <input type="text" class="form-control" id="drogas-comienzo" >
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="drogas-frecuencia" class="form-label">Frecuencia</label>
+                <input type="text" class="form-control" id="drogas-frecuencia">
+              </div>
+  
+            </div>  
+          
+            <h5 class="mb-3">Antecedentes gineco-obstétricos</h5>            
+
+            <div class="my-3">
+              <div class="form-check form-switch">
+                  <input class="form-check-input" type="checkbox" id="AGO" onchange="agoCambio()">
+                  <label class="form-check-label" for="AGO">Sí-No</label>
+                </div>
+            </div>
+
+            <div class="row gy-3" id="cAGO" style="display: none; margin-top: 0;">
+
+              <div class="col-sm-4">
+                <label for="AGO-menarquia" class="form-label">Menarquia</label>
+                <input type="text" class="form-control" id="AGO-menarquia" placeholder="Primera regla">
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="AGO-regularidad" class="form-label">Regularidad</label>
+                <input type="text" class="form-control" id="AGO-regularidad" >
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="AGO-ultimaregla" class="form-label">Última regla</label>
+                <input type="text" class="form-control" id="AGO-ultimaregla" placeholder="Fecha">
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="AGO-HPA" class="form-label">HPA (Híjos, partos, abortos)</label>
+                <input type="text" class="form-control" id="AGO-HPA">
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="AGO-menopausia" class="form-label">Menopausia</label>
+                <input type="text" class="form-control" id="AGO-menopausia">
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="AGO-examenes" class="form-label">Exámenes</label>
+                <input type="text" class="form-control" id="AGO-examenes" placeholder="PAP y mamografía">
+              </div>
+  
+            </div>
+
+            <h5 class="mb-3">Género y orientación sexual</h5>            
+
+            <div class="row gy-3" style="margin-top: 0;">
+  
+              <div class="col-sm-4">
+                <label for="genero" class="form-label">Género</label>
+                <input type="text" class="form-control" id="genero">
+              </div>
+  
+              <div class="col-sm-4">
+                <label for="orientacion-sexual" class="form-label">Orientación sexual</label>
+                <input type="text" class="form-control" id="orientacion-sexual" >
+              </div>
+  
+            </div>
+
+
+            <div class="col-sm-6">
+              <h5 class="mb-3">Antecedentes familiares</h5>
+              <textarea class="form-control" id="antecedentes-familiares" rows="3"></textarea>
+            </div>
+
+            <div class="col-sm-6">
+              <h5 class="mb-3">Antecedentes socioeconómicos</h5>
+              <textarea class="form-control" id="antecedentes-socioeconomicos" rows="3"></textarea>
+            </div>            
+            
+            <div class="col-12">
+              <h5 class="mb-3">Adicional</h5>
+              <textarea class="form-control" id="remota-adicional" rows="8"></textarea>
+            </div>
+
+          </div>
+
+          <hr class="my-4">
+
+          <h4 class="mb-3">Historia clínica</h4>
+
+          <div class="col-12">
+            <textarea class="form-control" id="historia-clinica" rows="8"></textarea>
+          </div>
+          
+          <hr class="my-4">
+
+          <!--<button class="btn btn-primary" type="submit">Guardar paciente</button> <button class="btn btn-danger" type="submit">Diagnosticar (beta)</button>--> <button class="btn btn-success" onclick="window.print();return false;">Descargar PDF</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2021. Sebastián Sáez Moscoso.</p>
+    <ul class="list-inline">
+      <!--<li class="list-inline-item"><a href="#">Privacidad, términos y ética</a></li>
+      <li class="list-inline-item"><a href="#">Acerca de</a></li>-->
+    </ul>
+  </footer>
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+      <script src="form-validation.js"></script>
+      <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"></script>
+      <script src="main.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.3.1/jspdf.umd.min.js"></script>
+      <script src="print.js"></script>
+  </body>
+</html>

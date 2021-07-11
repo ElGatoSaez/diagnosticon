@@ -1,0 +1,12 @@
+.printOnly {
+  display: none;
+}
+
+@media print {
+    /* @page { margin: 0; } */
+    body { margin: 1.6cm; }
+    header {display: none;}
+    footer {display: none;}
+    input[type="text"] { display: none;}
+    .printOnly { display: block; }
+  }
